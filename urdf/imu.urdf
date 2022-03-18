@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot name="imu_cube">
+
+  <link name="base">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </link>
+
+  <link name="imu">
+    <visual>
+      <origin rpy="1.57075 1.57075 -3.1415" xyz="0 -0.025 0"/>
+      <geometry>
+       <mesh filename="package://imu_test/meshes/ERC2022_IMU.dae" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="imu_panel">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </link>
+
+  <joint name="imu_joint" type="fixed">
+    <parent link="base"/>
+    <child link="imu"/>
+    <origin rpy="1.57075 0 0" xyz="0 0 0"/>
+  </joint>
+
+  <joint name="imu_panel_joint" type="fixed">
+    <parent link="imu"/>
+    <child link="imu_panel"/>
+    <origin rpy="0 1.57075 0" xyz="0 0 0"/>
+  </joint>
+
+</robot>
